@@ -1,10 +1,21 @@
 function App() {
+  const favoriteDrink = "Iced Matcha Latte";
+  const cupsToday = 2;
+
+  const cardClass = "drink-card";
+  const isOutOfStock = false;
+
+  let energyStatus = "Ready to code!";
+  if (cupsToday >= 2) {
+    energyStatus = "Fully caffeinated and ready to build React apps!";
+  }
+
   return (
-    <div className="App">
-      <h1>Hello MOBPROG-IT252 World!</h1>
-      <h2>Happy 2026 SoCITFest!</h2>
-      <h2> Have a good long weekend and holiday.</h2>
-      <h3>Rhona-Mae Prudenciado</h3>
+    <div id="main-container" className={cardClass} style={{ padding: "20px", fontFamily: "sans-serif" }}>
+      <h1>My Coding Fuel</h1>
+      <p>My go-to drink is {favoriteDrink} and I have had {cupsToday * 1} cups today.</p>
+      <p>Status: {energyStatus}</p>
+      <button disabled={isOutOfStock}>Order Another Cup</button>
     </div>
   );
 }
