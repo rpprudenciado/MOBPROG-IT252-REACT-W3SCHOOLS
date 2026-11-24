@@ -1,10 +1,37 @@
-import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import './index.css'
-import App from './App.jsx'
+
+function Son(props) {
+  return (
+    <div style={{ background: 'lightgreen', padding: '10px', marginBottom: '10px' }}>
+      <h2>Son</h2>
+      <div>{props.children}</div>
+    </div>
+  );
+}
+
+function Daughter(props) {
+  return (
+    <div style={{ background: 'lightblue', padding: '10px' }}>
+      <h2>Daughter</h2>
+      <div>{props.children}</div>
+    </div>
+  );
+}
+
+function Parent() {
+  return (
+    <div>
+      <h1>My Two Children</h1>
+      <Son>
+        <p>This was written in the Parent component, but displayed as a part of the Son component.</p>
+      </Son>
+      <Daughter>
+        <p>This was written in the Parent component, but displayed as a part of the Daughter component.</p>
+      </Daughter>
+    </div>
+  );
+}
 
 createRoot(document.getElementById('root')).render(
-  <StrictMode>
-    <App />
-  </StrictMode>,
-)
+  <Parent/>
+);
